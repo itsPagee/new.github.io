@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>San Valentin</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    background-image: url("https://media1.tenor.com/m/KsrYRRbv14AAAAAd/star.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  #animation-container {
+    width: 40%;
+    position: relative;
+    text-align: center; /* Center text in container */
+    display: flex;
+    width: relative;
+    height: relative;
+  }
+
+  #animation {
+    width: 55%;
+    max-width: 800px;
+    height: auto;
+    display: block; /* Center the image */
+    margin: auto; /* Center the image */
+    display: flex;
+  }
+
+  #buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  #yesBtn, #noBtn {
+    font-size: 1.2em;
+    padding: 15px 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+  }
+
+  #yesBtn {
+    background: linear-gradient(to right, #4CAF50, #45a049); /* Green gradient */
+    box-shadow: 0px 5px 10px rgba(76, 175, 76, 0.7); /* Green shadow */
+  }
+
+  #noBtn {
+    background: linear-gradient(to right, #d9534f, #c9302c); /* Red gradient */
+    box-shadow: 0px 5px 10px rgba(217, 83, 79, 0.7); /* Red shadow */
+  }
+
+  #valentine-text, #yay-text {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: black;
+    margin-top: 20px;
+  }
+
+  
+   #header {
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    padding: 5px;
+    position: fixed;
+    top: 0;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  #disclaimer {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 600px) {
+    #animation {
+      width: 90%;
+    }
+
+    #yesBtn, #noBtn {
+      font-size: 1em;
+      padding: 12px 24px;
+      margin: 0 8px;
+    }
+
+    #valentine-text, #yay-text {
+      font-size: 2em;
+    }
+    
+  }
+  </style>
+  <script>
+  	function addContent() {
+    	let additionalContent = document.createElement("div");
+      additionalContent.id = "animation-content";
+      additionalContent.innerHTML = '<img id="animation" src="https://media1.tenor.com/m/3-0Df-t1sJkAAAAC/pakpakthree.gif" alt="Animated Image">';
+    	let additionalContent2 = document.createElement("div");
+      additionalContent2.id = "animation-content";
+      additionalContent2.innerHTML = '<img id="animation" src="https://media.tenor.com/RcX3hUY425kAAAAi/toothless-dragon-toothless.gif" alt="Animated Image">';
+      let yayText = document.createElement("div");
+      yayText.id = "yay-text";
+      yayText.textContent = "Sabía que dirías que si 😊";
+      additionalContent.appendChild(yayText);
+      document.body.appendChild(additionalContent);
+      document.body.appendChild(additionalContent2);
+      }
+    
+    function clearContent() {
+    
+      // Remove specific elements while keeping the footer
+      let animationElement = document.getElementById("animation-container");
+      let disclaimerElement = document.getElementById("disclaimer");
+
+      let valentineText = document.getElementById("valentine-text");
+      let animationButtons = document.getElementById("buttons");
+      if (animationElement && valentineText && animationButtons ) {
+        animationElement.remove();
+        animationButtons.remove();
+        valentineText.remove();
+        disclaimerElement.remove();
+      }
+      addContent();
+      
+    }
+
+    function adjustButtonSize() {
+       let yesBtn = document.getElementById("yesBtn");
+      let noBtn = document.getElementById("noBtn");
+
+      let currentYesSize = parseFloat(getComputedStyle(yesBtn).fontSize);
+      let currentNoWidth = parseFloat(getComputedStyle(noBtn).width);
+      let currentNoHeight = parseFloat(getComputedStyle(noBtn).height);
+
+      let newYesSize = currentYesSize + 32;
+      let newNoWidth = currentNoWidth - 14;
+      let newNoHeight = currentNoHeight - 14;
+      let noButtonFontSize = (currentNoWidth / currentNoHeight) + 6
+
+      yesBtn.style.fontSize = newYesSize + "px";
+      noBtn.style.width = newNoWidth + "px";
+      noBtn.style.height = newNoHeight + "px";
+      noBtn.style.fontSize = noButtonFontSize + "px";
+    }
+  </script>
+</head>
+<body>
+<div id="header">Creador: Alexitoz.</div>
+  <div id="animation-container">
+    <img id="animation" src="https://media1.tenor.com/m/GOabrbLMl4AAAAAd/plink-cat-plink.gif"alt="Animated Image">
+  </div>
+  <div id="valentine-text">¿Quieres ser mi Valentín Elizalde? 🤠</div>
+  <div id="buttons">
+    <button id="yesBtn" onclick="clearContent()">SI</button>
+    <button id="noBtn" onclick="adjustButtonSize()">NO</button>
+  </div>
+  <br>
+  <footer>
+  <div id="footer">
+    <p id="disclaimer">
+      Escoge bien lo que qiueres. 😉
+    </p>
+  </div>
+  </footer>
+</body>
+</html>
